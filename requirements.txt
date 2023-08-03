@@ -47,7 +47,6 @@ opencv-python==4.5.5.64
 opt-einsum==3.3.0
 packaging==23.1
 paddle-bfloat==0.1.7
-paddlepaddle-gpu==2.5.0.post120
 paddleseg==2.8.0
 pandas==2.0.3
 parso==0.8.3
@@ -91,3 +90,7 @@ visualdl==2.5.3
 wcwidth==0.2.6
 Werkzeug==2.3.6
 wheel==0.37.1
+uvicorn==0.23.1
+fastapi==0.100.0
+python-multipart
+https://paddle-wheel.bj.bcebos.com/2.5.1/linux-cudnnin/linux-gpu-cuda12.0-cudnn8.9-mkl-gcc12.2-avx/paddlepaddle_gpu-2.5.1.post120-cp310-cp310-linux_x86_64.whl

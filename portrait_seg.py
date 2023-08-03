@@ -1,9 +1,4 @@
-import argparse
-import os
-import sys
-import yaml
 import paddle
-import paddleseg
 import numpy as np
 
 
