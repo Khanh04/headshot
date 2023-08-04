@@ -46,4 +46,4 @@ COPY . /app/
 # RUN add-apt-repository ppa:ubuntu-toolchain-r/test 
 
 ENV LD_LIBRARY_PATH=/usr/local/lib64 
-CMD ["uvicorn", "app:app"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0"]
