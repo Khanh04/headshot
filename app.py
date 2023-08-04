@@ -2,6 +2,7 @@ import io
 import cv2
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import StreamingResponse
+import uvicorn
 
 import numpy as np
 from portrait_seg import remove_background
@@ -26,3 +27,7 @@ async def upload_file(file: UploadFile = File(...)):
     image_bytes = cv2.imencode(".png", image_rgba)[1].tobytes()
 
     return StreamingResponse(io.BytesIO(image_bytes), media_type="image/png")
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

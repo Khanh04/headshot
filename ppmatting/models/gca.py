@@ -228,13 +228,9 @@ class ResNet_D_Dec(nn.Layer):
 
     def forward(self, x, mid_fea):
         x = self.layer1(x)  # N x 256 x 32 x 32
-        print(x.shape)
         x = self.layer2(x)  # N x 128 x 64 x 64
-        print(x.shape)
         x = self.layer3(x)  # N x 64 x 128 x 128
-        print(x.shape)
         x = self.layer4(x)  # N x 32 x 256 x 256
-        print(x.shape)
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.leaky_relu(x)
