@@ -44,7 +44,6 @@ model:
   type: PPMattingV2
   backbone:
     type: STDC1
-    pretrained: https://bj.bcebos.com/paddleseg/dygraph/PP_STDCNet1.tar.gz
   decoder_channels: [128, 96, 64, 32, 16]
   head_channel: 8
   dpp_output_channel: 256
