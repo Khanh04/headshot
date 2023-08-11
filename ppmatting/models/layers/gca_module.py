@@ -210,6 +210,6 @@ class GuidedCxtAtten(nn.Layer):
 
     @staticmethod
     def l2_norm(x):
-        x = x**2
+        x = x ** 2
         x = x.sum(axis=[1, 2, 3], keepdim=True)
         return paddle.sqrt(x)

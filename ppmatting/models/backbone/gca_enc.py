@@ -313,11 +313,14 @@ class ResGuidedCxtAtten(ResNet_D):
         fea4 = self.shortcut[3](x3)
         fea5 = self.shortcut[4](x4)
 
-        return out, {
-            "shortcut": (fea1, fea2, fea3, fea4, fea5),
-            "image_fea": im_fea,
-            "unknown": unknown,
-        }
+        return (
+            out,
+            {
+                "shortcut": (fea1, fea2, fea3, fea4, fea5),
+                "image_fea": im_fea,
+                "unknown": unknown,
+            },
+        )
 
 
 class BasicBlock(nn.Layer):

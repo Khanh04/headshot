@@ -57,7 +57,7 @@ class MSE:
         pred = pred / 255.0
         gt = gt / 255.0
         diff = (pred - gt) * mask
-        mse_diff = (diff**2).sum() / pixels if pixels > 0 else 0
+        mse_diff = (diff ** 2).sum() / pixels if pixels > 0 else 0
 
         self.mse_diffs += mse_diff
         self.count += 1
@@ -124,10 +124,10 @@ class Grad:
         self.count = 0
 
     def gaussian(self, x, sigma):
-        return np.exp(-(x**2) / (2 * sigma**2)) / (sigma * np.sqrt(2 * np.pi))
+        return np.exp(-(x ** 2) / (2 * sigma ** 2)) / (sigma * np.sqrt(2 * np.pi))
 
     def dgaussian(self, x, sigma):
-        return -x * self.gaussian(x, sigma) / sigma**2
+        return -x * self.gaussian(x, sigma) / sigma ** 2
 
     def gauss_filter(self, sigma, epsilon=1e-2):
         half_size = np.ceil(
@@ -144,7 +144,7 @@ class Grad:
                 )
 
         # normalize filter
-        norm = np.sqrt((filter_x**2).sum())
+        norm = np.sqrt((filter_x ** 2).sum())
         filter_x = filter_x / norm
         filter_y = np.transpose(filter_x)
 
@@ -158,7 +158,7 @@ class Grad:
         img_filtered_y = cv2.filter2D(
             img, -1, filter_y, borderType=cv2.BORDER_REPLICATE
         )
-        return np.sqrt(img_filtered_x**2 + img_filtered_y**2)
+        return np.sqrt(img_filtered_x ** 2 + img_filtered_y ** 2)
 
     def update(self, pred, gt, trimap=None, sigma=1.4):
         """
