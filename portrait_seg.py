@@ -40,4 +40,4 @@ def remove_background(image, background=None, trimap=None):
 
     rgba = np.concatenate((fg, alpha), axis=-1)
 
-    return rgba
+    return rgba.astype("uint8"), alpha

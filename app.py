@@ -1,7 +1,7 @@
-import io
+import base64
 import cv2
-from fastapi import FastAPI, UploadFile, File
-from fastapi.responses import StreamingResponse
+from fastapi import FastAPI
+from pydantic import BaseModel
 import uvicorn
 
 import numpy as np
@@ -10,23 +10,36 @@ from portrait_seg import remove_background
 app = FastAPI()
 
 
+def cv2base64(image_array):
+    _, buffer = cv2.imencode(".jpg", image_array)
+    processed_img_base64 = base64.b64encode(buffer).decode("utf-8")
+    return processed_img_base64
+
+class ImageInput(BaseModel):
+    image_data: str
+
+class ImageOutput(BaseModel):
+    image: str
+    mask: str
+
+
 @app.post("/process_image")
-async def upload_file(file: UploadFile = File(...)):
+async def upload_file(payload: ImageInput):
     # Read the image using cv2
-    image_bytes = await file.read()
+    image_bytes = base64.b64decode(payload.image_data)
+    
+    # Convert bytes to numpy array
     image_np = np.frombuffer(image_bytes, np.uint8)
+
     image = cv2.imdecode(image_np, cv2.IMREAD_COLOR)
 
     # Process the image
-    image_rgba = remove_background(image).astype("uint8")
+    image_rgba, mask = remove_background(image)
 
     # Swap the Red and Blue channels in the RGBA image
     image_rgba[:, :, [0, 2]] = image_rgba[:, :, [2, 0]]
 
-    # Convert the PIL image to Bytes and prepare for the response
-    image_bytes = cv2.imencode(".png", image_rgba)[1].tobytes()
-
-    return StreamingResponse(io.BytesIO(image_bytes), media_type="image/png")
+    return ImageOutput(image=cv2base64(image_rgba), mask=cv2base64(mask))
 
 
 if __name__ == "__main__":
