@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04
+FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04 AS base-image
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
 ARG DEBIAN_FRONTEND=noninteractive
@@ -14,6 +14,7 @@ ENV PYTHON_SETUPTOOLS_VERSION 65.5.1
 ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/0d8570dc44796f4369b652222cf176b3db6ac70e/public/get-pip.py
 ENV PYTHON_GET_PIP_SHA256 96461deced5c2a487ddc65207ec5a9cffeca0d34e7af7ea1afc470ff0d746207
 ENV GPG_KEY A035C8C19219BA821ECEA86B64E628F8D684696D
+ENV LD_LIBRARY_PATH=/usr/local/lib64 
 ENV PYTHON_VERSION 3.10.4
 
 RUN apt-get update && apt-get upgrade --yes 
@@ -43,7 +44,12 @@ WORKDIR /app/
 COPY requirements.txt /app/
 RUN pip3 install -r requirements.txt
 COPY . /app/
-# RUN add-apt-repository ppa:ubuntu-toolchain-r/test 
 
-ENV LD_LIBRARY_PATH=/usr/local/lib64 
+# --- Image 1: Uvicorn App ---
+FROM base-image AS uvicorn-app
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0"]
+
+
+# --- Image 2: Runpod ---
+FROM base-image AS runpod-app
+CMD ["python", "run_serverless.py"]
