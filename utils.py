@@ -18,6 +18,6 @@ def init_model(config_path: str):
 
 
 def cv2base64(image_array):
-    _, buffer = cv2.imencode(".jpg", image_array)
+    _, buffer = cv2.imencode(".png", image_array)
     processed_img_base64 = base64.b64encode(buffer).decode("utf-8")
     return processed_img_base64
