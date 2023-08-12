@@ -93,4 +93,5 @@ wheel==0.37.1
 uvicorn==0.23.1
 fastapi==0.100.0
 python-multipart
-https://paddle-wheel.bj.bcebos.com/2.5.1/linux-cudnnin/linux-gpu-cuda12.0-cudnn8.9-mkl-gcc12.2-avx/paddlepaddle_gpu-2.5.1.post120-cp310-cp310-linux_x86_64.whl
+runpod==1.1.0
+https://paddle-wheel.bj.bcebos.com/2.5.1/linux-cudnnin/linux-gpu-cuda12.0-cudnn8.9-mkl-gcc12.2-avx/paddlepaddle_gpu-2.5.1.post120-cp310-cp310-linux_x86_64.whlrunpod 1.1.0
