@@ -1,3 +1,5 @@
+import base64
+import cv2
 from ppmatting.utils import Config, MatBuilder
 from paddleseg.utils import utils
 
@@ -13,3 +15,9 @@ def init_model(config_path: str):
     transforms = Compose(builder.val_transforms)
     model.eval()
     return model, transforms
+
+
+def cv2base64(image_array):
+    _, buffer = cv2.imencode(".jpg", image_array)
+    processed_img_base64 = base64.b64encode(buffer).decode("utf-8")
+    return processed_img_base64
