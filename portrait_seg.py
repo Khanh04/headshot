@@ -2,6 +2,7 @@ import paddle
 import numpy as np
 
 from paddleseg.cvlibs import manager
+from models import BackgroundColor
 
 manager.BACKBONES._components_dict.clear()
 manager.TRANSFORMS._components_dict.clear()
@@ -29,14 +30,17 @@ def remove_background(image, background_mode="w", trimap=None):
     return rgba.astype("uint8"), alpha
 
 
-def get_bg(background, img_shape):
+def get_bg(background: str, img_shape: tuple[int]):
     bg = np.zeros(img_shape)
-    if background == "r":
-        bg[:, :, 2] = 255
-    elif background is None or background == "g":
-        bg[:, :, 1] = 255
-    elif background == "b":
-        bg[:, :, 0] = 255
-    elif background == "w":
-        bg[:, :, :] = 255
+    match background:
+        case BackgroundColor.Red:
+            bg[:, :, 2] = 255
+        case BackgroundColor.Green:
+            bg[:, :, 1] = 255
+        case BackgroundColor.Blue:
+            bg[:, :, 0] = 255
+        case BackgroundColor.White:
+            bg[:, :, :] = 255
+        case _:
+            raise ValueError("Invalid background color mode")
     return bg

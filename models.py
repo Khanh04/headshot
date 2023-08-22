@@ -2,11 +2,26 @@ import base64
 import cv2
 import numpy as np
 from pydantic import BaseModel, field_validator
+from enum import Enum
+
+
+class BackgroundColor(str, Enum):
+    White = "w"
+    Green = "g"
+    Red = "r"
+    Blue = "b"
 
 
 class ImageInput(BaseModel):
+    
     image_data: str
-    background_color: str = "w"
+    """
+    Image data, decoded as encoded as base 64 string.
+    """
+    background_color: BackgroundColor = BackgroundColor.White
+    """
+    Background color, will be used to replace the background.
+    """
 
     @field_validator("image_data")
     def validate_image_string(cls, v):
