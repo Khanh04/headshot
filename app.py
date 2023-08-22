@@ -9,7 +9,7 @@ app = FastAPI()
 
 
 @app.post("/process_image")
-async def upload_file(payload: ImageInput):
+async def upload_file(payload: ImageInput) -> ImageOutput:
     # Process the image
     image_rgba, mask = remove_background(payload.image, payload.background_color)
 
