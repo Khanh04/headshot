@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.2.0-runtime-ubuntu20.04 AS base-image
+FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04 AS base-image
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
 ARG DEBIAN_FRONTEND=noninteractive
@@ -44,6 +44,7 @@ WORKDIR /app/
 COPY requirements.txt /app/
 RUN pip3 install -r requirements.txt
 COPY . /app/
+RUN pip3 install paddlepaddle-gpu==2.5.1.post112 -f https://www.paddlepaddle.org.cn/whl/linux/cudnnin/stable.html
 
 # --- Image 1: Uvicorn App ---
 FROM base-image AS uvicorn-app
