@@ -8,7 +8,7 @@ manager.BACKBONES._components_dict.clear()
 manager.TRANSFORMS._components_dict.clear()
 
 from ppmatting.core.predict import preprocess, reverse_transform
-from utils import init_model
+from utils import init_model, rebuild_mask
 from setting import CONFIG_PATH
 
 MODEL, TRANSFORMs = init_model(CONFIG_PATH)
@@ -20,9 +20,8 @@ def remove_background(image, background_mode="w", trimap=None):
         result = MODEL(data)
     alpha = reverse_transform(result, data["trans_info"])
     alpha = (alpha.numpy()).squeeze()
-
+    alpha = rebuild_mask(alpha)
     alpha = alpha[:, :, np.newaxis]
-
     bg = get_bg(background_mode, image.shape)
 
     rgba = alpha * image + (1 - alpha) * bg

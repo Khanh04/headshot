@@ -13,12 +13,11 @@ class BackgroundColor(str, Enum):
 
 
 class ImageInput(BaseModel):
-    
     image_data: str
     """
     Image data, decoded as encoded as base 64 string.
     """
-    background_color: BackgroundColor = BackgroundColor.White
+    background_color: BackgroundColor
     """
     Background color, will be used to replace the background.
     """
