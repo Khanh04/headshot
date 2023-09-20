@@ -41,9 +41,9 @@ COPY ./scripts/install.sh /
 RUN chmod +x /install.sh && /install.sh
 
 WORKDIR /app/
+RUN pip3 install paddlepaddle-gpu==2.5.1.post112 -f https://www.paddlepaddle.org.cn/whl/linux/cudnnin/stable.html
 COPY requirements.txt /app/
 RUN pip3 install -r requirements.txt
-RUN pip3 install paddlepaddle-gpu==2.5.1.post112 -f https://www.paddlepaddle.org.cn/whl/linux/cudnnin/stable.html
 COPY . /app/
 
 # --- Image 1: Uvicorn App ---

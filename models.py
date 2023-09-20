@@ -5,19 +5,12 @@ from pydantic import BaseModel, field_validator
 from enum import Enum
 
 
-class BackgroundColor(str, Enum):
-    White = "w"
-    Green = "g"
-    Red = "r"
-    Blue = "b"
-
-
 class ImageInput(BaseModel):
     image_data: str
     """
     Image data, decoded as encoded as base 64 string.
     """
-    background_color: BackgroundColor
+    background_color: str
     """
     Background color, will be used to replace the background.
     """
