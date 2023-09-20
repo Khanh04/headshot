@@ -138,7 +138,7 @@ class LaplacianLoss(nn.Layer):
         if size % 2 != 1:
             raise ValueError("kernel size must be uneven")
         grid = np.float32(np.mgrid[0:size, 0:size].T)
-        gaussian = lambda x: np.exp((x - size // 2) ** 2 / (-2 * sigma ** 2)) ** 2
+        gaussian = lambda x: np.exp((x - size // 2) ** 2 / (-2 * sigma**2)) ** 2
         kernel = np.sum(gaussian(grid), axis=2)
         kernel /= np.sum(kernel)
         kernel = np.tile(kernel, (n_channels, 1, 1))

@@ -786,7 +786,7 @@ class RandomNoise:
             return data
         mean = np.random.uniform(0, 0.04)
         var = np.random.uniform(0, 0.001)
-        noise = np.random.normal(mean, var ** 0.5, data["img"].shape) * 255
+        noise = np.random.normal(mean, var**0.5, data["img"].shape) * 255
         data["img"] = data["img"] + noise
         data["img"] = np.clip(data["img"], 0, 255)
 
