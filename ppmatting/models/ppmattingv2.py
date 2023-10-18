@@ -12,18 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from functools import partial
 from collections import defaultdict
+from functools import partial
 
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
-
 import paddleseg
 from paddleseg import utils
-from paddleseg.models import layers
 from paddleseg.cvlibs import manager
-from paddleseg.models.backbones.transformer_utils import Identity, DropPath
+from paddleseg.models import layers
+from paddleseg.models.backbones.transformer_utils import DropPath, Identity
 
 from ppmatting.models.layers import MLFF
 from ppmatting.models.losses import MRSD, GradientLoss

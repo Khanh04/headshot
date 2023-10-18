@@ -13,12 +13,13 @@
 # limitations under the License.
 
 from collections import defaultdict
+
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
-from paddleseg.models import layers
 from paddleseg import utils
 from paddleseg.cvlibs import manager
+from paddleseg.models import layers
 
 from ppmatting.models.losses import MRSD
 

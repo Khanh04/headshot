@@ -13,10 +13,10 @@
 # limitations under the License.
 
 import os
+from urllib.parse import urlparse
 
 import paddle
-from urllib.parse import urlparse
-from paddleseg.utils import logger, download_pretrained_model
+from paddleseg.utils import download_pretrained_model, logger
 
 
 def get_files(root_path):

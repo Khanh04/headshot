@@ -13,15 +13,16 @@
 # limitations under the License.
 
 import os
-import time
-from collections import deque, defaultdict
 import pickle
 import shutil
+import time
+from collections import defaultdict, deque
 
 import numpy as np
 import paddle
 import paddle.nn.functional as F
-from paddleseg.utils import TimeAverager, calculate_eta, resume, logger, train_profiler
+from paddleseg.utils import (TimeAverager, calculate_eta, logger, resume,
+                             train_profiler)
 
 from .val import evaluate
 

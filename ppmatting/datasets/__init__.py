@@ -12,6 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .matting_dataset import MattingDataset
 from .composition_1k import Composition1K
 from .distinctions_646 import Distinctions646
+from .matting_dataset import MattingDataset

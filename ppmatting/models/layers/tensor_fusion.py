@@ -16,7 +16,6 @@ import numpy as np
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
-
 from paddleseg.models import layers
 
 from ppmatting.models.layers import tensor_fusion_helper as helper

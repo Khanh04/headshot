@@ -18,8 +18,8 @@ import string
 
 import cv2
 import numpy as np
-from paddleseg.transforms import functional
 from paddleseg.cvlibs import manager
+from paddleseg.transforms import functional
 from paddleseg.utils import seg_env
 from PIL import Image
 

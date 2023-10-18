@@ -14,17 +14,16 @@
 
 import codecs
 import os
-from typing import Any, Dict, Generic
 import warnings
 from ast import literal_eval
+from typing import Any, Dict, Generic
 
 import paddle
-import yaml
-import six
-
 import paddleseg
-from paddleseg.utils import logger
+import six
+import yaml
 from paddleseg.cvlibs import config_checker as checker
+from paddleseg.utils import logger
 from paddleseg.utils.utils import CachedProperty as cached_property
 
 

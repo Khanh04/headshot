@@ -1,10 +1,11 @@
 import base64
+
 import cv2
 import numpy as np
-from ppmatting.utils import Config, MatBuilder
 from paddleseg.utils import utils
 
 from ppmatting.transforms import Compose
+from ppmatting.utils import Config, MatBuilder
 from setting import CHECKPOINT_PATH
 
 

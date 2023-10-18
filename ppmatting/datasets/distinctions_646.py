@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 import math
+import os
+import random
 
 import cv2
 import numpy as np
-import random
 import paddle
 from paddleseg.cvlibs import manager
 

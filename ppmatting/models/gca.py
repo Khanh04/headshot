@@ -18,9 +18,9 @@
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
-from paddleseg.models import layers
 from paddleseg import utils
 from paddleseg.cvlibs import manager, param_init
+from paddleseg.models import layers
 
 from ppmatting.models.layers import GuidedCxtAtten
 

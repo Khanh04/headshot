@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 import math
+import os
 import time
 
 import cv2
@@ -22,9 +22,9 @@ import paddle
 import paddle.nn.functional as F
 from paddleseg import utils
 from paddleseg.core import infer
-from paddleseg.utils import logger, progbar, TimeAverager
+from paddleseg.utils import TimeAverager, logger, progbar
 
-from ppmatting.utils import mkdir, estimate_foreground_ml
+from ppmatting.utils import estimate_foreground_ml, mkdir
 
 
 def partition_list(arr, m):

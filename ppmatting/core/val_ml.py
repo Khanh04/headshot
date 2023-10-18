@@ -13,17 +13,17 @@
 # limitations under the License.
 
 import os
+import time
 
 import cv2
 import numpy as np
-import time
 import paddle
 import paddle.nn.functional as F
 from paddleseg.utils import TimeAverager, calculate_eta, logger, progbar
+from pymatting.foreground.estimate_foreground_ml import estimate_foreground_ml
+from pymatting.util.util import load_image, save_image, stack_images
 
 from ppmatting.metrics import metric
-from pymatting.util.util import load_image, save_image, stack_images
-from pymatting.foreground.estimate_foreground_ml import estimate_foreground_ml
 
 np.set_printoptions(suppress=True)
 

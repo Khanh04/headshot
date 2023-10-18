@@ -12,19 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from collections import defaultdict
 import time
+from collections import defaultdict
 
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
 import paddleseg
-from paddleseg.models import layers
 from paddleseg import utils
 from paddleseg.cvlibs import manager
+from paddleseg.models import layers
 
-from ppmatting.models.losses import MRSD, GradientLoss
 from ppmatting.models.backbone import resnet_vd
+from ppmatting.models.losses import MRSD, GradientLoss
 
 
 @manager.MODELS.add_component

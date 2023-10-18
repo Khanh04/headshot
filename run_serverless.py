@@ -1,6 +1,7 @@
 import runpod
-from portrait_seg import remove_background
+
 from models import ImageInput
+from portrait_seg import remove_background
 from utils import cv2base64
 
 

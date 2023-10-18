@@ -1,8 +1,9 @@
 import base64
+from enum import Enum
+
 import cv2
 import numpy as np
 from pydantic import BaseModel, field_validator
-from enum import Enum
 
 
 class ImageInput(BaseModel):

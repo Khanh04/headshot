@@ -1,15 +1,15 @@
-import paddle
 import numpy as np
-
+import paddle
 from paddleseg.cvlibs import manager
 
 manager.BACKBONES._components_dict.clear()
 manager.TRANSFORMS._components_dict.clear()
 
-from ppmatting.core.predict import preprocess, reverse_transform
-from utils import init_model, rebuild_mask
-from setting import CONFIG_PATH
 from PIL import ImageColor
+
+from ppmatting.core.predict import preprocess, reverse_transform
+from setting import CONFIG_PATH
+from utils import init_model, rebuild_mask
 
 MODEL, TRANSFORMs = init_model(CONFIG_PATH)
 

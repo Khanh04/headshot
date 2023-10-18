@@ -15,15 +15,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from typing import Optional, Tuple
+
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
-from paddle import Tensor
 import paddleseg
+from paddle import Tensor
 from paddleseg import utils
-from paddleseg.models import layers
 from paddleseg.cvlibs import manager
-from typing import Tuple, Optional
+from paddleseg.models import layers
 
 from ppmatting.models import FastGuidedFilter
 

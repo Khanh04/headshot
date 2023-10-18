@@ -13,10 +13,10 @@
 # limitations under the License.
 
 import os
+import time
 
 import cv2
 import numpy as np
-import time
 import paddle
 import paddle.nn.functional as F
 from paddleseg.utils import TimeAverager, calculate_eta, logger, progbar

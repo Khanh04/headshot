@@ -70,9 +70,10 @@ class RandomWalksMatting(BaseMLMatting):
 
 
 if __name__ == "__main__":
-    from pymatting.util.util import load_image, save_image, stack_images
-    from pymatting.foreground.estimate_foreground_ml import estimate_foreground_ml
     import cv2
+    from pymatting.foreground.estimate_foreground_ml import \
+        estimate_foreground_ml
+    from pymatting.util.util import load_image, save_image, stack_images
 
     root = "/mnt/liuyi22/PaddlePaddle/PaddleSeg/Matting/data/examples/"
     image_path = root + "lemur.png"

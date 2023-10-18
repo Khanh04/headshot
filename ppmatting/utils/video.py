@@ -2,8 +2,8 @@ import os
 import warnings
 
 import cv2
-import paddle
 import numpy as np
+import paddle
 
 import ppmatting
 import ppmatting.transforms as T

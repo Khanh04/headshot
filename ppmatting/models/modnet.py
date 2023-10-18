@@ -11,15 +11,15 @@
 
 from collections import defaultdict
 
+import numpy as np
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
-import numpy as np
-import scipy
 import paddleseg
-from paddleseg.models import layers, losses
+import scipy
 from paddleseg import utils
 from paddleseg.cvlibs import manager, param_init
+from paddleseg.models import layers, losses
 
 
 @manager.MODELS.add_component

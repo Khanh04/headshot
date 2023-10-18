@@ -15,12 +15,11 @@
 import paddle
 import paddle.nn as nn
 from paddle import ParamAttr
-from paddle.regularizer import L2Decay
 from paddle.nn import AdaptiveAvgPool2D, BatchNorm, Conv2D, Dropout, Linear
-
+from paddle.regularizer import L2Decay
 from paddleseg.cvlibs import manager
-from paddleseg.utils import utils, logger
 from paddleseg.models import layers
+from paddleseg.utils import logger, utils
 
 __all__ = [
     "MobileNetV3_small_x0_35",

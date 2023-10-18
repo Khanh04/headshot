@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 import math
+import os
 import time
 from collections.abc import Iterable
 
@@ -23,10 +23,11 @@ import paddle
 import paddle.nn.functional as F
 from paddleseg import utils
 from paddleseg.core import infer
-from paddleseg.utils import logger, progbar, TimeAverager
+from paddleseg.utils import TimeAverager, logger, progbar
 
 import ppmatting.transforms as T
-from ppmatting.utils import mkdir, estimate_foreground_ml, VideoReader, VideoWriter
+from ppmatting.utils import (VideoReader, VideoWriter, estimate_foreground_ml,
+                             mkdir)
 
 
 def build_loader_writter(video_path, transforms, save_dir):

@@ -1,7 +1,2 @@
-from .methods import (
-    CloseFormMatting,
-    KNNMatting,
-    LearningBasedMatting,
-    FastMatting,
-    RandomWalksMatting,
-)
+from .methods import (CloseFormMatting, FastMatting, KNNMatting,
+                      LearningBasedMatting, RandomWalksMatting)

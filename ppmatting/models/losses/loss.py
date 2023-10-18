@@ -12,13 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import cv2
 import numpy as np
 import paddle
 import paddle.nn as nn
 import paddle.nn.functional as F
-
 from paddleseg.cvlibs import manager
-import cv2
 
 
 @manager.LOSSES.add_component
